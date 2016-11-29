@@ -53,7 +53,7 @@ public class Dialog {
             } catch (PackageManager.NameNotFoundException ignored) {
             }
             alertDialogBuilder.setTitle(context.getResources().getString(R.string.newUpdateAvailable));
-            alertDialogBuilder.setMessage(context.getResources().getString(R.string.downloadFor, appName, storeName))
+            alertDialogBuilder.setMessage(context.getResources().getString(R.string.downloadFor, appName))
                     .setCancelable(true)
                     .setPositiveButton(context.getString(R.string.dialogPositiveButton), new DialogInterface.OnClickListener() {
                         @Override
@@ -67,14 +67,6 @@ public class Dialog {
                         public void onClick(DialogInterface dialog, int which) {
                             dialog.cancel();
                         }
-                    })
-                    .setNegativeButton(context.getString(R.string.dialogNegativeButton), new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            userHasTappedToNotShowNoticeAgain(context, versionDownloadable);
-                            dialog.cancel();
-                        }
-
                     });
             if (dialogIconResId != 0) {
                 alertDialogBuilder.setIcon(dialogIconResId);
